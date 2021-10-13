@@ -1,8 +1,8 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe ServiceProvider, type: :model do
-  describe "Factory" do
-    it "for :service_provider is valid" do
+  describe 'Factory' do
+    it 'for :service_provider is valid' do
       expect(create(:service_provider)).to be_valid
     end
 
@@ -11,7 +11,7 @@ RSpec.describe ServiceProvider, type: :model do
     # end
   end
 
-  describe "Associations" do
+  describe 'Associations' do
     it { is_expected.to have_and_belong_to_many :categories }
     it { is_expected.to have_many :addresses }
     # it { is_expected.to have_many :users }
@@ -37,7 +37,7 @@ RSpec.describe ServiceProvider, type: :model do
 
   # describe "Instance methods" do
 
-  #   describe 'variants' do 
+  #   describe 'variants' do
   #     it { is_expected.to respond_to :company! }
   #     it { is_expected.to respond_to :freelancer! }
   #     it { is_expected.to respond_to :company? }
@@ -65,12 +65,12 @@ RSpec.describe ServiceProvider, type: :model do
   #     end
   #   end
 
-  #   describe "Categories" do 
+  #   describe "Categories" do
   #     let(:category_1) {create(:category, name: 'Construction')}
   #     let(:category_2) {create(:category, name: 'House Keeping')}
-  #     subject {create(:service_provider, categories: [category_1, category_2])} 
+  #     subject {create(:service_provider, categories: [category_1, category_2])}
 
-  #     it "are defined" do 
+  #     it "are defined" do
   #       expect(subject.categories.map{|c| c.name}).to eq  ["Construction", "House Keeping"]
   #     end
   #   end

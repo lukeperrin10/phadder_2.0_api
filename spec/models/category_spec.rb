@@ -8,13 +8,13 @@ RSpec.describe Category, type: :model do
       it { is_expected.to validate_presence_of :name}
     end
 
-    describe 'instance methods' do  
-      it { is_expected.to respond_to :translations}
-    end
+    # describe 'instance methods' do  
+    #   it { is_expected.to respond_to :translations}
+    # end
 
-    describe 'class methods' do  
-      subject { described_class }
-      it { is_expected.to respond_to :with_translations}
-    end
+    # describe 'class methods' do  
+    #   subject { described_class }
+    #   it { is_expected.to respond_to :with_translations}
+    # end
   end
 end
