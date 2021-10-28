@@ -23,5 +23,5 @@ blocks:
             - cache store
             - 'bundle exec rake db:create'
             - 'bundle exec rake db:migrate'
-            - 'COVERALLS_REPO_TOKEN=meqWTuqsfX9HVpNH0bYNqbBjpWGfqo7ZN bundle exec rails ci:tests'
+            - 'COVERALLS_REPO_TOKEN=meqWTuqsfX9HVpNH0bYNqbBjpWGfqo7ZN bundle exec rspec spec'
      
