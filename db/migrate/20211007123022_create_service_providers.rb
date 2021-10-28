@@ -1,4 +1,4 @@
-class CreateServiceProviders < ActiveRecord::Migration[7.0]
+class CreateServiceProviders < ActiveRecord::Migration[6.1]
   def change
     create_table :service_providers do |t|
       t.string :name

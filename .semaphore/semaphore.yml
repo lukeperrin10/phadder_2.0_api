@@ -12,6 +12,10 @@ blocks:
           value: 'postgresql://postgres:@0.0.0.0:5432/myapp_test'
         - name: RAILS_ENV
           value: test
+      epilogue:
+        always:
+          commands:
+            - test-results publish /tmp/junit.xml
       jobs:
         - name: Test
           commands:
@@ -23,5 +27,5 @@ blocks:
             - cache store
             - 'bundle exec rake db:create'
             - 'bundle exec rake db:migrate'
-            - 'COVERALLS_REPO_TOKEN=meqWTuqsfX9HVpNH0bYNqbBjpWGfqo7ZN bundle exec rspec spec'
+            - 'COVERALLS_REPO_TOKEN=meqWTuqsfX9HVpNH0bYNqbBjpWGfqo7ZN bundle exec rspec --format RspecJunitFormatter --out /tmp/junit.xml --format documentation'
      
