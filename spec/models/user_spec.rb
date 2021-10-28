@@ -84,30 +84,30 @@ RSpec.describe User, type: :model do
           end
         end
 
-        #       describe "#service_provider" do
-        #         it { is_expected.to respond_to :service_provider? }
-        #         it { is_expected.to respond_to :service_provider! }
+        describe '#service_provider' do
+          it { is_expected.to respond_to :service_provider? }
+          it { is_expected.to respond_to :service_provider! }
 
-        #         it 'responds true to ".service_provider?" when role == :service_provider' do
-        #           expect(service_provider.service_provider?).to eq true
-        #         end
+          it 'responds true to ".service_provider?" when role == :service_provider' do
+            expect(service_provider.service_provider?).to eq true
+          end
+          it 'responds false to ".service_provider?" when role != :service_provider' do
+            expect(end_user.super_admin?).to eq false
+          end
+        end
 
-        #         it 'responds false to ".service_provider?" when role != :service_provider' do
-        #           expect(end_user.super_admin?).to eq false
-        #         end
-        #       end
+        describe '#super_admin' do
+          it { is_expected.to respond_to :super_admin? }
+          it { is_expected.to respond_to :super_admin! }
 
-        #       describe "#super_admin" do
-        #         it { is_expected.to respond_to :super_admin? }
-        #         it { is_expected.to respond_to :super_admin! }
+          it 'responds true to ".super_admin?" when role == :super_admin' do
+            expect(super_admin.super_admin?).to eq true
+          end
 
-        #         it 'responds true to ".super_admin?" when role == :super_admin' do
-        #           expect(super_admin.super_admin?).to eq true
-        #         end
-
-        #         it 'responds false to ".super_admin?" when role != :super_admin' do
-        #           expect(end_user.super_admin?).to eq false
-        #         end
+          it 'responds false to ".super_admin?" when role != :super_admin' do
+            expect(end_user.super_admin?).to eq false
+          end
+        end
       end
     end
   end
