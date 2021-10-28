@@ -25,6 +25,7 @@ group :development, :test do
   gem 'rspec_junit_formatter', group: [:test]
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'faker'
 end
 
 group :development do
