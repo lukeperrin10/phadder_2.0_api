@@ -15,15 +15,16 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 # gem 'image_processing', '~> 1.2'
 
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'rack-cors'
 gem 'devise_token_auth'
+gem 'rack-cors'
 
 group :development, :test do
-  gem 'pry-rails'
-  gem 'shoulda-matchers'
-  gem 'factory_bot_rails'
-  gem 'rspec-rails'
   gem 'coveralls', require: false
+  gem 'factory_bot_rails'
+  gem 'pry-rails'
+  gem 'rspec_junit_formatter', group: [:test]
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
