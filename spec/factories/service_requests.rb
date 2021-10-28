@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :service_request do
     title { "Just a string" }
     details { "Just some longer text..." }
-    # user
+    user
     # state { 'new' }
     # location { '424 32'}
     # after(:build) do |sr|

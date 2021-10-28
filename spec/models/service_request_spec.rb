@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe ServiceRequest, type: :model do
 
   describe "Factory" do 
@@ -18,12 +16,12 @@ RSpec.describe ServiceRequest, type: :model do
       # it { is_expected.to have_db_column :longitude }
     end
 
-    # describe "associations" do
-    #   it { is_expected.to belong_to :user }
-    #   it { is_expected.to have_and_belong_to_many :categories }
-    #   it { is_expected.to have_many :bids }
-    #   it { is_expected.to have_one :deal }
-    # end
+    describe "associations" do
+      it { is_expected.to belong_to :user }
+      # it { is_expected.to have_and_belong_to_many :categories }
+      # it { is_expected.to have_many :bids }
+      # it { is_expected.to have_one :deal }
+    end
   end
 
   # describe "States, Events and Transitions" do
