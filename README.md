@@ -1,3 +1,6 @@
+[![Coverage Status](https://coveralls.io/repos/github/Adaptive-Technologies/phadder_2.0_api/badge.svg?branch=development)](https://coveralls.io/github/Adaptive-Technologies/phadder_2.0_api?branch=development)
+
+
 # README
 
 This README would normally document whatever steps are necessary to get the
