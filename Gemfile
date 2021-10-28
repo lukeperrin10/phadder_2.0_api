@@ -5,7 +5,7 @@ ruby '3.0.0'
 
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
-gem 'rails', '7.0.0.alpha2'
+gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -16,6 +16,7 @@ gem 'rails', '7.0.0.alpha2'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rack-cors'
+gem 'devise_token_auth'
 
 group :development, :test do
   gem 'pry-rails'
