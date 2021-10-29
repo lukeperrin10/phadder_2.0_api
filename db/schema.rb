@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_29_092029) do
+ActiveRecord::Schema.define(version: 2021_10_29_120300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(version: 2021_10_29_092029) do
   create_table "categories_service_requests", id: false, force: :cascade do |t|
     t.bigint "category_id", null: false
     t.bigint "service_request_id", null: false
+  end
+
+  create_table "deals", force: :cascade do |t|
+    t.bigint "bid_id"
+    t.bigint "service_request_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "creator_id"
+    t.index ["bid_id"], name: "index_deals_on_bid_id"
+    t.index ["creator_id"], name: "index_deals_on_creator_id"
+    t.index ["service_request_id"], name: "index_deals_on_service_request_id"
   end
 
   create_table "service_providers", force: :cascade do |t|
@@ -111,6 +122,9 @@ ActiveRecord::Schema.define(version: 2021_10_29_092029) do
   add_foreign_key "bids", "service_requests"
   add_foreign_key "bids", "users", column: "creator_id"
   add_foreign_key "categories", "service_providers"
+  add_foreign_key "deals", "bids"
+  add_foreign_key "deals", "service_requests"
+  add_foreign_key "deals", "users", column: "creator_id"
   add_foreign_key "service_requests", "users"
   add_foreign_key "users", "service_providers"
 end
