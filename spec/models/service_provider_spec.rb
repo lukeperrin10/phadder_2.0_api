@@ -35,7 +35,7 @@ RSpec.describe ServiceProvider, type: :model do
   #   end
   # end
 
-  # describe "Instance methods" do
+  describe "Instance methods" do
 
   #   describe 'variants' do
   #     it { is_expected.to respond_to :company! }
@@ -49,21 +49,21 @@ RSpec.describe ServiceProvider, type: :model do
   #     end
   #   end
 
-  #   describe "Logotype" do
-  #     subject {create(:service_provider)}
-  #     it "is valid  " do
-  #       subject.logotype.attach(io: File.open(fixture_path + "/dummy_logo.png"), filename: "logo-#{subject.name.underscore}_logotype.png", content_type: "image/png")
-  #       expect(subject.logotype).to be_attached
-  #     end
-  #   end
+    describe "Logotype" do
+      subject {create(:service_provider)}
+      it "is valid  " do
+        subject.logotype.attach(io: File.open(fixture_path + "/dummy_logo.png"), filename: "logo-#{subject.name.underscore}_logotype.png", content_type: "image/png")
+        expect(subject.logotype).to be_attached
+      end
+    end
 
-  #   describe "Banner" do
-  #     subject {create(:service_provider)}
-  #     it "is valid  " do
-  #       subject.banner.attach(io: File.open(fixture_path + "/dummy_banner.jpg"), filename: "logo-#{subject.name.underscore}_banner.png", content_type: "image/jpg")
-  #       expect(subject.banner).to be_attached
-  #     end
-  #   end
+    describe "Banner" do
+      subject {create(:service_provider)}
+      it "is valid  " do
+        subject.banner.attach(io: File.open(fixture_path + "/dummy_banner.jpg"), filename: "logo-#{subject.name.underscore}_banner.png", content_type: "image/jpg")
+        expect(subject.banner).to be_attached
+      end
+    end
 
   #   describe "Categories" do
   #     let(:category_1) {create(:category, name: 'Construction')}
@@ -84,5 +84,5 @@ RSpec.describe ServiceProvider, type: :model do
   #     # custom methods
   #     it {is_expected.to respond_to :verified?}
   #    end
-  # end
+  end
 end
