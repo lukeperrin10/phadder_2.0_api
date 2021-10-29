@@ -2,6 +2,7 @@ class ServiceRequest < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :categories
   has_many :bids
+  has_one :deal
 
   state_machine :state, initial: :new do
     event :receive_bid do

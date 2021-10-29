@@ -19,6 +19,7 @@ RSpec.describe User, type: :model do
         describe "associations" do
           it { is_expected.to have_many :service_requests }
           it { is_expected.to have_many :bids }
+          it { is_expected.to have_many :deals }
           # it { is_expected.to have_many :received_messages }
           it { is_expected.to belong_to(:service_provider).optional }
         end
