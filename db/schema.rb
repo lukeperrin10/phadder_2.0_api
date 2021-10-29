@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_182947) do
+ActiveRecord::Schema.define(version: 2021_10_29_072510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 2021_10_28_182947) do
     t.index ["service_provider_id"], name: "index_addresses_on_service_provider_id"
   end
 
+  create_table "bids", force: :cascade do |t|
+    t.float "amount"
+    t.bigint "service_request_id"
+    t.bigint "creator_id"
+    t.bigint "service_provider_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["creator_id"], name: "index_bids_on_creator_id"
+    t.index ["service_provider_id"], name: "index_bids_on_service_provider_id"
+    t.index ["service_request_id"], name: "index_bids_on_service_request_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.bigint "service_provider_id", null: false
@@ -39,6 +51,11 @@ ActiveRecord::Schema.define(version: 2021_10_28_182947) do
   create_table "categories_service_providers", id: false, force: :cascade do |t|
     t.bigint "category_id", null: false
     t.bigint "service_provider_id", null: false
+  end
+
+  create_table "categories_service_requests", id: false, force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "service_request_id", null: false
   end
 
   create_table "service_providers", force: :cascade do |t|
@@ -87,6 +104,9 @@ ActiveRecord::Schema.define(version: 2021_10_28_182947) do
   end
 
   add_foreign_key "addresses", "service_providers"
+  add_foreign_key "bids", "service_providers"
+  add_foreign_key "bids", "service_requests"
+  add_foreign_key "bids", "users", column: "creator_id"
   add_foreign_key "categories", "service_providers"
   add_foreign_key "service_requests", "users"
 end
