@@ -13,6 +13,8 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+# gem "aws-sdk-s3", require: false
+
 
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise_token_auth'
