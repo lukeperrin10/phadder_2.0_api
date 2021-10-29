@@ -7,7 +7,7 @@ RSpec.describe Bid, type: :model do
 
     describe 'associations' do
       it { is_expected.to belong_to :service_request }
-      # it { is_expected.to belong_to :creator }
+      it { is_expected.to belong_to :creator }
       it { is_expected.to belong_to :service_provider }
       #       it { is_expected.to have_one :deal }
     end
