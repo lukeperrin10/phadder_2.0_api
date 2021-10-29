@@ -60,55 +60,55 @@ RSpec.describe User, type: :model do
     #     end
     #   end
 
-    #   describe "Roles" do
-    #     describe "are defined for" do
-    #       let(:end_user) { create(:user) }
-    #       let(:service_provider) { create(:user, role: :service_provider) }
-    #       let(:super_admin) { create(:user, role: :super_admin) }
+    describe 'Roles' do
+      describe 'are defined for' do
+        let(:end_user) { create(:user) }
+        let(:service_provider) { create(:user, role: :service_provider) }
+        let(:super_admin) { create(:user, role: :super_admin) }
 
-    #       describe "#end_user" do
-    #         it { is_expected.to respond_to :end_user? }
-    #         it { is_expected.to respond_to :end_user! }
+        describe '#end_user' do
+          it { is_expected.to respond_to :end_user? }
+          it { is_expected.to respond_to :end_user! }
 
-    #         it 'responds true to ".end_user?" when role == :end_user' do
-    #           expect(end_user.end_user?).to eq true
-    #         end
+          it 'responds true to ".end_user?" when role == :end_user' do
+            expect(end_user.end_user?).to eq true
+          end
 
-    #         it 'responds false to ".end_user?" when role != :end_user' do
-    #           expect(super_admin.end_user?).to eq false
-    #         end
+          it 'responds false to ".end_user?" when role != :end_user' do
+            expect(super_admin.end_user?).to eq false
+          end
 
-    #         it "changes role with the bang method" do
-    #           end_user.super_admin!
-    #           expect(end_user.end_user?).to eq false
-    #         end
-    #       end
+          it 'changes role with the bang method' do
+            end_user.super_admin!
+            expect(end_user.end_user?).to eq false
+          end
+        end
 
-    #       describe "#service_provider" do
-    #         it { is_expected.to respond_to :service_provider? }
-    #         it { is_expected.to respond_to :service_provider! }
+        describe '#service_provider' do
+          it { is_expected.to respond_to :service_provider? }
+          it { is_expected.to respond_to :service_provider! }
 
-    #         it 'responds true to ".service_provider?" when role == :service_provider' do
-    #           expect(service_provider.service_provider?).to eq true
-    #         end
+          it 'responds true to ".service_provider?" when role == :service_provider' do
+            expect(service_provider.service_provider?).to eq true
+          end
+          it 'responds false to ".service_provider?" when role != :service_provider' do
+            expect(end_user.super_admin?).to eq false
+          end
+        end
 
-    #         it 'responds false to ".service_provider?" when role != :service_provider' do
-    #           expect(end_user.super_admin?).to eq false
-    #         end
-    #       end
+        describe '#super_admin' do
+          it { is_expected.to respond_to :super_admin? }
+          it { is_expected.to respond_to :super_admin! }
 
-    #       describe "#super_admin" do
-    #         it { is_expected.to respond_to :super_admin? }
-    #         it { is_expected.to respond_to :super_admin! }
+          it 'responds true to ".super_admin?" when role == :super_admin' do
+            expect(super_admin.super_admin?).to eq true
+          end
 
-    #         it 'responds true to ".super_admin?" when role == :super_admin' do
-    #           expect(super_admin.super_admin?).to eq true
-    #         end
-
-    #         it 'responds false to ".super_admin?" when role != :super_admin' do
-    #           expect(end_user.super_admin?).to eq false
-    #         end
-    #       end
-    #     end
+          it 'responds false to ".super_admin?" when role != :super_admin' do
+            expect(end_user.super_admin?).to eq false
+          end
+        end
+      end
+    end
   end
 end
