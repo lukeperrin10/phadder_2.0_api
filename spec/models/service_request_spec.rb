@@ -27,6 +27,7 @@ RSpec.describe ServiceRequest, type: :model do
 
   describe "States, Events and Transitions" do
     subject { create(:service_request) }
+  
     # states
     it { is_expected.to have_states :new, :abandoned, :pending, :in_progress, :finalized }
     # events
