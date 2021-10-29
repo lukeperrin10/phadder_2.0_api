@@ -14,7 +14,7 @@ RSpec.describe ServiceProvider, type: :model do
   describe 'Associations' do
     it { is_expected.to have_and_belong_to_many :categories }
     it { is_expected.to have_many :addresses }
-    # it { is_expected.to have_many :users }
+    it { is_expected.to have_many :users }
     # it { is_expected.to have_many :tracked_service_requests }
   end
 

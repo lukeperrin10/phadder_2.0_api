@@ -16,12 +16,12 @@ RSpec.describe User, type: :model do
       # it { is_expected.to have_db_column :language_code }
     end
 
-    #     describe "associations" do
-    #       it { is_expected.to have_many :service_requests }
-    #       it { is_expected.to have_many :bids }
-    #       it { is_expected.to have_many :received_messages }
-    #       it { is_expected.to belong_to :service_provider }
-    #     end
+        # describe "associations" do
+          # it { is_expected.to have_many :service_requests }
+          # it { is_expected.to have_many :bids }
+          # it { is_expected.to have_many :received_messages }
+          # it { is_expected.to belong_to :service_provider }
+        # end
     #   end
 
     #   describe "Instance methods" do
