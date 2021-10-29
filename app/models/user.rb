@@ -7,7 +7,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
 
+  has_many :service_requests
+  has_many :bids, foreign_key: 'creator_id'
   enum role: %i[end_user service_provider super_admin]
+
+  belongs_to :service_provider, optional: true
 
   private
 
