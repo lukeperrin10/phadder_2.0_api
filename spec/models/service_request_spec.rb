@@ -10,6 +10,7 @@ RSpec.describe ServiceRequest, type: :model do
     describe "table" do
       it { is_expected.to have_db_column :title }
       it { is_expected.to have_db_column :details }
+      it { is_expected.to have_db_column :state }
       # it { is_expected.to have_db_column :location }
       # it { is_expected.to have_db_column :address }
       # it { is_expected.to have_db_column :latitude }
@@ -24,29 +25,29 @@ RSpec.describe ServiceRequest, type: :model do
     end
   end
 
-  # describe "States, Events and Transitions" do
-  #   subject { create(:service_request) }
-  #   # states
-  #   it { is_expected.to have_states :new, :abandoned, :pending, :in_progress, :finalized }
-  #   # events
-  #   it { is_expected.to handle_events :abandon, :receive_bid, when: :new }
-  #   it { is_expected.to handle_events :abandon, :accept_bid, when: :pending }
+  describe "States, Events and Transitions" do
+    subject { create(:service_request) }
+  
+    # states
+    it { is_expected.to have_states :new, :abandoned, :pending, :in_progress, :finalized }
+    # events
+    it { is_expected.to handle_events :abandon, :receive_bid, when: :new }
+    it { is_expected.to handle_events :abandon, :accept_bid, when: :pending }
 
-  #   # transitions
-  #   it ':receive_bid transitions from :new to :pending' do 
-  #     subject.receive_bid
-  #     expect(subject.pending?).to eq true
-  #   end
+    # transitions
+    it ':receive_bid transitions from :new to :pending' do 
+      subject.receive_bid
+      expect(subject.pending?).to eq true
+    end
 
-  #   [:new, :pending].each do |state| 
-  #     it ":abandon transitions from #{state} to :abandoned" do 
-  #       subject.state = state
-  #       subject.abandon
-  #       expect(subject.abandoned?).to eq true
-  #     end
-  #   end
-
-  # end
+    [:new, :pending].each do |state| 
+      it ":abandon transitions from #{state} to :abandoned" do 
+        subject.state = state
+        subject.abandon
+        expect(subject.abandoned?).to eq true
+      end
+    end
+  end
 
   # describe "Categories" do 
   #   let(:category_1) {create(:category, name: 'Construction')}

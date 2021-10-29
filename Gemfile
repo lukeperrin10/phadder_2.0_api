@@ -17,15 +17,17 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise_token_auth'
 gem 'rack-cors'
+gem 'state_machines-activerecord'
 
 group :development, :test do
   gem 'coveralls', require: false
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'pry-rails'
   gem 'rspec_junit_formatter', group: [:test]
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'faker'
+  gem 'state_machines-rspec'
 end
 
 group :development do
