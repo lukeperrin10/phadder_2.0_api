@@ -2,7 +2,7 @@ RSpec.describe Bid, type: :model do
   describe 'Database' do
     describe 'table' do
       it { is_expected.to have_db_column :amount }
-      # it {is_expected.to have_db_column :note}
+      it { is_expected.to have_db_column :note }
     end
 
     describe 'associations' do
