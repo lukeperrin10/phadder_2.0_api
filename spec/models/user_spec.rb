@@ -16,50 +16,50 @@ RSpec.describe User, type: :model do
       # it { is_expected.to have_db_column :language_code }
     end
 
-        describe "associations" do
-          it { is_expected.to have_many :service_requests }
-          it { is_expected.to have_many :bids }
-          it { is_expected.to have_many :deals }
-          # it { is_expected.to have_many :received_messages }
-          it { is_expected.to belong_to(:service_provider).optional }
+    describe 'associations' do
+      it { is_expected.to have_many :service_requests }
+      it { is_expected.to have_many :bids }
+      it { is_expected.to have_many :deals }
+      # it { is_expected.to have_many :received_messages }
+      it { is_expected.to belong_to(:service_provider).optional }
+    end
+    # end
+
+      describe "Instance methods" do
+        let(:user_without_name) { create(:user, email: "no_name@random.com", first_name: nil, last_name: nil) }
+      let(:user_with_name) { create(:user, first_name: "John", last_name: "Doe") }
+
+        it { is_expected.to respond_to :full_name }
+        it { is_expected.to respond_to :display_name }
+        it { is_expected.to respond_to :avatar }
+
+        describe "#full_name" do
+          it "user with name attributes set returns full name" do
+            expect(user_with_name.full_name).to eq "John Doe"
+          end
+
+          it "user without name attributes set returns false" do
+            expect(user_without_name.full_name).to be_falsy
+          end
         end
-    #   end
 
-    #   describe "Instance methods" do
-    #     let(:user_without_name) { create(:user, email: "no_name@random.com", first_name: nil, last_name: nil) }
-    #   let(:user_with_name) { create(:user, first_name: "John", last_name: "Doe") }
+        describe "#display_name" do
+          it "user with name attributes set returns full name" do
+            expect(user_with_name.display_name).to eq "John Doe"
+          end
 
-    #     it { is_expected.to respond_to :full_name }
-    #     it { is_expected.to respond_to :display_name }
-    #     it { is_expected.to respond_to :avatar }
+          it "user without name attributes set returns false" do
+            expect(user_without_name.display_name).to eq "no_name@random.com"
+          end
+        end
 
-    #     describe "#full_name" do
-    #       it "user with name attributes set returns full name" do
-    #         expect(user_with_name.full_name).to eq "John Doe"
-    #       end
-
-    #       it "user without name attributes set returns false" do
-    #         expect(user_without_name.full_name).to be_falsy
-    #       end
-    #     end
-
-    #     describe "#display_name" do
-    #       it "user with name attributes set returns full name" do
-    #         expect(user_with_name.display_name).to eq "John Doe"
-    #       end
-
-    #       it "user without name attributes set returns false" do
-    #         expect(user_without_name.display_name).to eq "no_name@random.com"
-    #       end
-    #     end
-
-    #     describe "Avatar" do
-    #       it "is valid  " do
-    #         subject.avatar.attach(io: File.open(fixture_path + "/dummy_avatar.png"), filename: "avatar.png", content_type: "image/png")
-    #         expect(subject.avatar).to be_attached
-    #       end
-    #     end
-    #   end
+        describe "Avatar" do
+          it "is valid  " do
+            subject.avatar.attach(io: File.open(fixture_path + "/dummy_avatar.png"), filename: "avatar.png", content_type: "image/png")
+            expect(subject.avatar).to be_attached
+          end
+        end
+      end
 
     describe 'Roles' do
       describe 'are defined for' do
