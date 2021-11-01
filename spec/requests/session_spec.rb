@@ -10,6 +10,7 @@ RSpec.describe 'POST /api/auth/sign_in', type: :request do
         'allow_password_change' => false,
         'first_name' => user.first_name,
         'last_name' => user.last_name,
+        'language_code' => user.language_code,
         'role' => user.role,
         'service_provider_id' => nil
       }
