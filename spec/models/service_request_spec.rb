@@ -11,6 +11,8 @@ RSpec.describe ServiceRequest, type: :model do
       it { is_expected.to have_db_column :title }
       it { is_expected.to have_db_column :details }
       it { is_expected.to have_db_column :state }
+      it { is_expected.to have_db_column :budget }
+      it { is_expected.to have_db_column :time_frame }
       # it { is_expected.to have_db_column :location }
       # it { is_expected.to have_db_column :address }
       # it { is_expected.to have_db_column :latitude }
@@ -23,6 +25,11 @@ RSpec.describe ServiceRequest, type: :model do
       it { is_expected.to have_many :bids }
       it { is_expected.to have_one :deal }
     end
+  end
+
+  describe "Enums" do
+    it { should define_enum_for(:budget).with_values([:small, :medium, :large]) }
+    it { should define_enum_for(:time_frame).with_values([:urgent, :moderate, :long_term]) }
   end
 
   describe "States, Events and Transitions" do
