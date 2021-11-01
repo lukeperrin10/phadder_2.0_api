@@ -25,6 +25,10 @@ RSpec.describe ServiceRequest, type: :model do
       it { is_expected.to have_many :bids }
       it { is_expected.to have_one :deal }
     end
+
+    describe 'instance methods' do  
+      it { is_expected.to respond_to :get_location}
+    end
   end
 
   describe 'Enums' do
