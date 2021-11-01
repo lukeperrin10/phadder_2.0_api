@@ -25,4 +25,13 @@ class ServiceRequest < ApplicationRecord
       transition [:in_progress] => :finalized
     end
   end
+
+  def get_location
+    result = PostCodeService.get_location(location)
+    self.latitude = result[:latitude]
+    self.longitude = result[:longitude]
+    self.address = result[:"place name"]
+    save
+    [latitude, longitude]
+  end
 end

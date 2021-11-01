@@ -14,9 +14,9 @@ RSpec.describe ServiceRequest, type: :model do
       it { is_expected.to have_db_column :time_frame }
       it { is_expected.to have_db_column :languages }
       it { is_expected.to have_db_column :location }
-      # it { is_expected.to have_db_column :address }
-      # it { is_expected.to have_db_column :latitude }
-      # it { is_expected.to have_db_column :longitude }
+      it { is_expected.to have_db_column :address }
+      it { is_expected.to have_db_column :latitude }
+      it { is_expected.to have_db_column :longitude }
     end
 
     describe 'associations' do
@@ -24,6 +24,10 @@ RSpec.describe ServiceRequest, type: :model do
       it { is_expected.to have_and_belong_to_many :categories }
       it { is_expected.to have_many :bids }
       it { is_expected.to have_one :deal }
+    end
+
+    describe 'instance methods' do  
+      it { is_expected.to respond_to :get_location}
     end
   end
 
