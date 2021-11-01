@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :bids, foreign_key: 'creator_id'
   belongs_to :service_provider, optional: true
   has_many :deals, through: :service_requests
+  has_many :received_messages, class_name: 'Message', foreign_key: 'receiver_id'
   has_one_attached :avatar
 
   def full_name
