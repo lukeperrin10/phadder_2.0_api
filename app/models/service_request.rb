@@ -4,6 +4,10 @@ class ServiceRequest < ApplicationRecord
   has_many :bids
   has_one :deal
 
+
+  enum budget: %i[small medium large]
+  enum time_frame: %i[urgent moderate long_term]
+
   state_machine :state, initial: :new do
     event :receive_bid do
       transition new: :pending
