@@ -1,3 +1,3 @@
 class Message < ApplicationRecord
-  belongs_to :reciver
+  belongs_to :receiver, class_name: "User"
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_01_074521) do
+ActiveRecord::Schema.define(version: 2021_11_01_075438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,10 +100,10 @@ ActiveRecord::Schema.define(version: 2021_11_01_074521) do
   create_table "messages", force: :cascade do |t|
     t.text "body"
     t.integer "origin"
-    t.bigint "reciver_id"
+    t.bigint "receiver_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["reciver_id"], name: "index_messages_on_reciver_id"
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
   end
 
   create_table "service_providers", force: :cascade do |t|
@@ -164,7 +164,7 @@ ActiveRecord::Schema.define(version: 2021_11_01_074521) do
   add_foreign_key "deals", "bids"
   add_foreign_key "deals", "service_requests"
   add_foreign_key "deals", "users", column: "creator_id"
-  add_foreign_key "messages", "users", column: "reciver_id"
+  add_foreign_key "messages", "users", column: "receiver_id"
   add_foreign_key "service_requests", "users"
   add_foreign_key "users", "service_providers"
 end
