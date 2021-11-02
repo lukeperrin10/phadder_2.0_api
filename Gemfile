@@ -10,6 +10,7 @@ gem 'puma', '~> 5.0'
 gem 'rack-cors'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'state_machines-activerecord'
+gem 'active_model_serializers'
 # gem "aws-sdk-s3", require: false
 
 group :development, :test do
