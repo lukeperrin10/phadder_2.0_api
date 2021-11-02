@@ -7,7 +7,6 @@ module ServiceRequestFilteringService
                                .joins(:categories)
                                .where('categories.id': service_provider_category_ids)
     collection.to_ary.keep_if do |request|
-      # binding.pry
       Address.near(request.address).select('id').map(&:service_provider_id).include?(user.service_provider.id)
     end
   end
