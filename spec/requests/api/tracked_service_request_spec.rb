@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# # frozen_string_literal: true
 
 # RSpec.describe 'Api::TrackedServiceRequestsController', type: :request do
 #   let(:user) { create(:user, email: 'whatever@hotmail.com') }
