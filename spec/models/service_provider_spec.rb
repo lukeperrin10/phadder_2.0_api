@@ -63,15 +63,15 @@ RSpec.describe ServiceProvider, type: :model do
       end
     end
 
-  #   describe "Categories" do
-  #     let(:category_1) {create(:category, name: 'Construction')}
-  #     let(:category_2) {create(:category, name: 'House Keeping')}
-  #     subject {create(:service_provider, categories: [category_1, category_2])}
+    describe "Categories" do
+      let(:category_1) {create(:category, name: 'Construction')}
+      let(:category_2) {create(:category, name: 'House Keeping')}
+      subject {create(:service_provider, categories: [category_1, category_2])}
 
-  #     it "are defined" do
-  #       expect(subject.categories.map{|c| c.name}).to eq  ["Construction", "House Keeping"]
-  #     end
-  #   end
+      it "are defined" do
+        expect(subject.categories.map{|c| c.name}).to eq  ["Construction", "House Keeping"]
+      end
+    end
 
   #   describe 'Badges' do
   #     # library methods
