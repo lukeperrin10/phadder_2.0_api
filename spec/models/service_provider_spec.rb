@@ -16,22 +16,22 @@ RSpec.describe ServiceProvider, type: :model do
     it { is_expected.to have_many :tracked_service_requests }
   end
 
-  # describe "Scopes" do
-  #   describe "#by_category" do
-  #     let!(:category) { create(:category) }
-  #     subject do
-  #       resource = create(:service_provider)
-  #       resource.categories << category
-  #       resource.save
-  #       resource
-  #     end
+  describe "Scopes" do
+    describe "#by_category" do
+      let!(:category) { create(:category) }
+      subject do
+        resource = create(:service_provider)
+        resource.categories << category
+        resource.save
+        resource
+      end
 
-  #     it "retuns resource using scope" do
-  #       query = ServiceProvider.by_category(category.id)
-  #       expect(query).to include subject
-  #     end
-  #   end
-  # end
+      it "retuns resource using scope" do
+        query = ServiceProvider.by_category(category.id)
+        expect(query).to include subject
+      end
+    end
+  end
 
   describe "Instance methods" do
 

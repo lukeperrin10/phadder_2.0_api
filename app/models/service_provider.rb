@@ -12,6 +12,12 @@ class ServiceProvider < ApplicationRecord
   after_create :add_basic_logotype
   after_create :add_basic_banner
 
+  scope :by_category, ->(category_id) {
+    return unless category_id.present?
+
+    includes(:categories).where(categories: { id: category_id })
+  }
+
   def add_basic_logotype
     unless logotype.attached?
       logotype.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy_logo.png')), filename: "avatar-#{name.underscore}.png", content_type: 'image/png')
