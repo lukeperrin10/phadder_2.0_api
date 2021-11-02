@@ -1,21 +1,19 @@
-require 'rails_helper'
-
 RSpec.describe ServiceProvider, type: :model do
   describe 'Factory' do
     it 'for :service_provider is valid' do
       expect(create(:service_provider)).to be_valid
     end
 
-    # it "for :service_provider as #freelancer is valid" do
-    #   expect(create(:service_provider, variant: :freelancer)).to be_valid
-    # end
+    it "for :service_provider as #freelancer is valid" do
+      expect(create(:service_provider, variant: :freelancer)).to be_valid
+    end
   end
 
   describe 'Associations' do
     it { is_expected.to have_and_belong_to_many :categories }
     it { is_expected.to have_many :addresses }
     it { is_expected.to have_many :users }
-    # it { is_expected.to have_many :tracked_service_requests }
+    it { is_expected.to have_many :tracked_service_requests }
   end
 
   # describe "Scopes" do
@@ -37,17 +35,17 @@ RSpec.describe ServiceProvider, type: :model do
 
   describe "Instance methods" do
 
-  #   describe 'variants' do
-  #     it { is_expected.to respond_to :company! }
-  #     it { is_expected.to respond_to :freelancer! }
-  #     it { is_expected.to respond_to :company? }
-  #     it { is_expected.to respond_to :freelancer? }
+    describe 'variants' do
+      it { is_expected.to respond_to :company! }
+      it { is_expected.to respond_to :freelancer! }
+      it { is_expected.to respond_to :company? }
+      it { is_expected.to respond_to :freelancer? }
 
-  #     describe "variant scope" do
-  #       it { expect(described_class).to respond_to :company }
-  #       it { expect(described_class).to respond_to :freelancer }
-  #     end
-  #   end
+      describe "variant scope" do
+        it { expect(described_class).to respond_to :company }
+        it { expect(described_class).to respond_to :freelancer }
+      end
+    end
 
     describe "Logotype" do
       subject {create(:service_provider)}
