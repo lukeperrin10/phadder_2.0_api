@@ -3,7 +3,9 @@ class ServiceRequest < ApplicationRecord
   has_and_belongs_to_many :categories
   has_many :bids
   has_one :deal
-
+  has_many_attached :images
+  geocoded_by :get_location
+  after_create :geocode
 
   enum budget: %i[small medium large]
   enum time_frame: %i[urgent moderate long_term]

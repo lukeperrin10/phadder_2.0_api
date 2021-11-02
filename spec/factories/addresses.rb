@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory :address do
-    street { "MyString" }
-    post_code { "MyString" }
-    city { "MyString" }
-    country { "MyString" }
-    latitude { 1.5 }
-    longitude { 1.5 }
+    street { 'Bergsgårdsgärdet' }
+    post_code { '42432' }
+    city { 'Gothenburg' }
+    country { 'Sweden' }
+    latitude { '9.99' }
+    longitude { '9.99' }
     service_provider { nil }
   end
 end

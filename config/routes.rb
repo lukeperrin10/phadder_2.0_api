@@ -2,6 +2,11 @@
 
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
+    mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+      omniauth_callbacks: 'api/omniauth_callbacks',
+      sessions: 'api/sessions',
+      registrations: 'api/registrations'
+    }
     resources :service_requests, only: %i[index show create]
     resources :bids, only: [:create], path: 'service_requests/bids'
     resources :tracked_service_requests, only: %i[create index]
