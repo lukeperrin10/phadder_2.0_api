@@ -13,6 +13,7 @@ gem 'rack-cors'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'rest-client'
 gem 'state_machines-activerecord'
+gem 'omniauth-facebook'
 # gem "aws-sdk-s3", require: false
 
 group :development, :test do

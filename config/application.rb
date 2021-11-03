@@ -28,5 +28,11 @@ module Phadder20Api
       generate.controller_specs false
       generate.requests_specs false
     end
+
+    config.session_store :cookie_store, key: '_ <<< application name _ Session >>>' 
+    config.middleware.use ActionDispatch::Cookies # Required for all session management
+    config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
   end
 end
+
+
