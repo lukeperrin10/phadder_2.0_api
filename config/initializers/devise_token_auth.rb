@@ -4,16 +4,16 @@ DeviseTokenAuth.setup do |config|
   config.change_headers_on_each_request = true
   config.token_lifespan = 2.weeks
   config.token_cost = Rails.env.test? ? 4 : 10
+  config.omniauth :facebook, Rails.application.credentials.facebook[:APP_ID], Rails.application.credentials.facebook[:APP_SECRET], token_params: { parse: :json }
 
   # Sets the max number of concurrent devices per user, which is 10 by default.
   # After this limit is reached, the oldest tokens will be removed.
   # config.max_number_of_devices = 10
   config.batch_request_buffer_throttle = 5.seconds
-
   # This route will be the prefix for all oauth2 redirect callbacks. For
   # example, using the default '/omniauth', the github oauth2 provider will
   # redirect successful authentications to '/omniauth/github/callback'
-  # config.omniauth_prefix = "/omniauth"
+  config.omniauth_prefix = "/omniauth"
 
   # By default sending current password is not needed for the password update.
   # Uncomment to enforce current_password param to be checked before all
