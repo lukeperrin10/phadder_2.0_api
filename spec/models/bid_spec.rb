@@ -12,8 +12,8 @@ RSpec.describe Bid, type: :model do
       it { is_expected.to have_one :deal }
     end
 
-    #     describe 'validations' do
-    #       it { is_expected.to validate_presence_of(:amount).with_message "Bid offer can't be blank"}
-    #     end
+    describe 'validations' do
+      it { is_expected.to validate_presence_of(:amount).with_message "Bid offer can't be blank"}
+    end
   end
 end
