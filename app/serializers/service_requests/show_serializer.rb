@@ -2,7 +2,7 @@ class ServiceRequests::ShowSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
   attributes :id, :title, :details, :state, :created, :budget, :time_frame
   attribute :images
-  # belongs_to :user, serializer: Users::ForServiceRequestSerializer
+  #belongs_to :user, serializer: Users::ForServiceRequestSerializer
   has_many :categories, serializer: Categories::ShowSerializer
 
   def created
