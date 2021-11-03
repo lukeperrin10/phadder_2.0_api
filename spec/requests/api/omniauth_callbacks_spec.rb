@@ -20,7 +20,7 @@ RSpec.describe 'User Session', type: :request do
         let(:params) { { omniauth_window_type: 'newWindow' } }
         let(:request) do
           lambda do
-            get('/api/auth/facebook/',
+            get('/api/auth/provider/callback',
                 params: params,
                 headers: headers)
             follow_redirect! until response.status == 200
@@ -29,7 +29,7 @@ RSpec.describe 'User Session', type: :request do
 
         let(:bad_request) do
           lambda do
-            get('/api/auth/facebook/',
+            get('/api/auth/provider/callback',
                 params: params,
                 headers: headers)
             # follow_redirect! until response.status == 200
@@ -60,7 +60,7 @@ RSpec.describe 'User Session', type: :request do
       let(:params) { { omniauth_window_type: 'newWindow' } }
       let(:request) do
         lambda do
-          get('/api/auth/facebook/',
+          get('/api/auth/provider/callback',
               params: params,
               headers: headers)
           follow_redirect! until response.status == 200

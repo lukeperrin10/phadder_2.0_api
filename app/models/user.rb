@@ -8,10 +8,10 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :omniauthable
+         :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
   
+  devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
   validates_length_of :first_name, minimum: 3, maximum: 50, allow_blank: true
   validates_length_of :last_name, minimum: 3, maximum: 50, allow_blank: true
@@ -35,6 +35,23 @@ class User < ActiveRecord::Base
 
   def set_default_role
     self.role ||= :end_user
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
+        user.email = data['email'] if user.email.blank?
+      end
+    end
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      # user.name = auth.info.name
+      user.password = Devise.friendly_token[0, 20]
+      # user.image = auth.info.image # assuming the user model has an image
+    end
   end
 
   def add_basic_avatar
