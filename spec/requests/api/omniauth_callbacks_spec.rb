@@ -20,7 +20,7 @@ RSpec.describe 'User Session', type: :request do
         let(:params) { { omniauth_window_type: 'newWindow' } }
         let(:request) do
           lambda do
-            get('/api/auth/provider/callback',
+            get('/api/auth/facebook/callback',
                 params: params,
                 headers: headers)
             follow_redirect! until response.status == 200
