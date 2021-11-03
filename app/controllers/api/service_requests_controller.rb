@@ -18,7 +18,7 @@ class Api::ServiceRequestsController < ApplicationController
                                               .merge!(user: current_api_user))
     attach_image(service_request)
     if service_request.persisted?
-      render json: { message: I18n.t('bidding.submission').to_s }
+      render json: { message: "Your request was successfully submitted!" }
     else
       render json: { messsage: service_request.errors.full_messages.to_sentence }, status: :unprocessable_entity
     end
