@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-      omniauth_callbacks: 'api/omniauth_callbacks',
+      omniauth_callbacks: 'api/omni_auth_callbacks',
       sessions: 'api/sessions',
       registrations: 'api/registrations'
     }
