@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
+
+
+  devise_for :users, only: :omniauth_callbacks,
+                     controllers: { omniauth_callbacks: :omniauth_callbacks }
+
   namespace :api, defaults: { format: :json } do
     mount_devise_token_auth_for 'User', at: 'auth', controllers: {
       omniauth_callbacks: 'api/omniauth_callbacks',
