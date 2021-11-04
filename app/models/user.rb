@@ -59,3 +59,4 @@ class User < ActiveRecord::Base
     avatar.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'dummy_avatar.png')), filename: "avatar-#{email}.png", content_type: 'image/png')
   end
 end
+
