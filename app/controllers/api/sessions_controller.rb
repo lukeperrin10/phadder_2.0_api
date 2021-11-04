@@ -18,7 +18,7 @@ class Api::SessionsController < DeviseTokenAuth::SessionsController
         return render_create_error_bad_credentials
       end
 
-      @client_id, @token = @resource.create_token
+      @client_id = @resource.create_token
       @resource.save
 
       sign_in(:user, @resource, store: false, bypass: false)

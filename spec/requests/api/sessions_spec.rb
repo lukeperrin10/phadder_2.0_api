@@ -92,6 +92,7 @@ RSpec.describe 'DELETE /api/auth/sign_out', type: :request do
   end
 
   it 'is expected to log out an authenticated user' do
+    binding.pry
     delete '/api/auth/sign_out', headers: @headers
     expect(response_json['success']).to eq true
   end
