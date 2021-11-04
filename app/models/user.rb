@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
   
+  devise :omniauthable, omniauth_providers: %i[facebook]
+
 
   validates_length_of :first_name, minimum: 3, maximum: 50, allow_blank: true
   validates_length_of :last_name, minimum: 3, maximum: 50, allow_blank: true
