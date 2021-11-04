@@ -1,8 +1,8 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
 
-  provider :google_oauth2, 
-  Rails.application.credentials.facebook[:google_key],
-  Rails.application.credentials.facebook[:google_secret]
+  #provider :google_oauth2, 
+  #Rails.application.credentials.facebook[:google_key],
+  #Rails.application.credentials.facebook[:google_secret]
 
   if Rails.env.production?
     provider :facebook,

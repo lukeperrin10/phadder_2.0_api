@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Api::SessionsController < DeviseTokenAuth::SessionsController
-  skip_before_action :verify_authenticity_token
+  #skip_before_action :verify_authenticity_token
   def create
     # Check
     field = (resource_params.keys.map(&:to_sym) & resource_class.authentication_keys).first

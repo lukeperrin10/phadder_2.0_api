@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::API
   before_action :configure_permitted_parameters, if: :devise_controller?
-
   include DeviseTokenAuth::Concerns::SetUserByToken
-
   rescue_from ActiveRecord::RecordNotFound, with: :handle_exception
 
   def handle_exception
